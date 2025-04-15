@@ -6,7 +6,7 @@
 /*   By: olthorel <olthorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:38:33 by olthorel          #+#    #+#             */
-/*   Updated: 2024/11/26 16:06:26 by olthorel         ###   ########.fr       */
+/*   Updated: 2025/04/15 14:44:36 by olthorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <fcntl.h>
 # include <stdarg.h>
 # include <string.h>
+# include <math.h>
+# include <limits.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 30
@@ -99,14 +101,21 @@ char	**ft_split(char const *s, char c);
 /*                                                                            */
 /* ************************************************************************** */
 
+int		ft_putchar(char c);
 void	ft_putchar_fd(char c, int fd);
 //Writes a character to a file descriptor.
+int		ft_putstr(char *str);
 void	ft_putstr_fd(char *s, int fd);
 //Writes a string to a file descriptor.
 void	ft_putendl_fd(char *s, int fd);
 //Writes a string followed by a newline to a file descriptor.
+int		ft_putnbr(int nb);
 void	ft_putnbr_fd(int n, int fd);
 //Writes an integer to a file descriptor.
+int		ft_putptr(void *ptr);
+int		ft_puthexa(unsigned int nb, char format);
+int		ft_putptrhexa(unsigned long long addr);
+int		ft_putunsigned(unsigned int nb);
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -128,8 +137,18 @@ int		ft_tolower(int c);
 //Converts a character to lowercase.
 int		ft_toupper(int c);
 //Converts a character to uppercase.
+int		ft_isdouble(char *str);
+//Checks if a character is a double.
+int		ft_isint(char *str);
+//Checks if a character is a int.
 int		ft_atoi(const char *nptr);
 //Converts a string to an integer.
+double	ft_atod(char *str);
+//Converts a string to an double.
+int		ft_atoc(char *str);
+//Converts a string to an color.
+int		ft_atoi_base(const char *str, const char *base);
+//Converts a string to an base.
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -166,5 +185,13 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 /* ************************************************************************** */
 
 char	*ft_next_line(char *str);
+
+/* ************************************************************************** */
+/*                                                                            */
+/*  	Ft_printff                                                            */
+/*                                                                            */
+/* ************************************************************************** */
+
+int		ft_printf(const char *format, ...);
 
 #endif

@@ -6,51 +6,11 @@
 /*   By: olthorel <olthorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:51:34 by olthorel          #+#    #+#             */
-/*   Updated: 2024/11/26 16:09:16 by olthorel         ###   ########.fr       */
+/*   Updated: 2025/04/15 13:42:19 by olthorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../ft_printf.h"
-
-int	ft_putptrhexa(unsigned long long addr)
-{
-	int					len;
-	char				hexa[17];
-	char				*base;
-	int					i;
-
-	len = 0;
-	i = 0;
-	base = "0123456789abcdef";
-	if (addr == 0)
-		return (ft_putchar('0'));
-	while (addr > 0)
-	{
-		hexa[i] = base[addr % 16];
-		addr = addr / 16;
-		i++;
-	}
-	while (i > 0)
-	{
-		len = len + ft_putchar(hexa[i - 1]);
-		i--;
-	}
-	return (len);
-}
-
-int	ft_putptr(void *ptr)
-{
-	int	len;
-
-	if (ptr == NULL)
-	{
-		len = ft_putstr("(nil)");
-		return (len);
-	}
-	len = ft_putstr("0x");
-	len = len + ft_putptrhexa((unsigned long long)ptr);
-	return (len);
-}
+#include "../libft.h"
 
 int	parse(va_list args, char specifier)
 {
